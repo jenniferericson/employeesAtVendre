@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { IEmployee } from "./../models/IEmployee";
-import { defineProps, ref } from "vue";
+import { defineProps } from "vue";
 
 interface EmployeeProp {
   employee: IEmployee;
 }
 
 defineProps<EmployeeProp>();
+
 </script>
 
 <template>
@@ -19,17 +20,16 @@ defineProps<EmployeeProp>();
       <a class="employeeContainer__email" :href="'mailto:' + employee.email">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="23"
-        height="23"
+        width="28"
+        height="28"
         fill="currentColor"
-        class="bi bi-envelope"
         viewBox="0 0 16 16"
       >
         <path
           d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
         />
       </svg>
-      </a>
+    </a>
     </div>
   </div>
 </template>
@@ -38,11 +38,12 @@ defineProps<EmployeeProp>();
 .employeeContainer {
   width: 200px;
   height: 250px;
-  margin-bottom: 10px;
+  margin: 0 3rem;
+  margin-bottom: 5rem;
 
   &__img {
-        height: 150px;
-        width: 150px;
+        height: 200px;
+        width: 200px;
         border-radius: 50%;
         object-fit: cover;
     }
@@ -54,11 +55,12 @@ defineProps<EmployeeProp>();
   }
 
   &__email {
-    margin-top: 10px;
+    margin-top: 5px;
     color: black;
 
     :hover {
         color: #5333ED;
+        cursor: pointer;
     }
   }
 }

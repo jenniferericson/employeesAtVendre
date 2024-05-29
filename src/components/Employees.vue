@@ -38,9 +38,9 @@ onMounted(() => {
   <Employee v-for="employee in employees" :employee="employee" :key="employee.id"/>
 </main>
 <div class="pagination">
-      <button class="pagination__btn" @click="prevPage"> &laquo; </button>
+      <button class="pagination__btn" :class="{ disabledBtn: currentPage === 1 }" @click="prevPage"> &laquo; </button>
       <span class="pagination__text">Sida {{ currentPage }} av {{ totalPages }}</span>
-      <button class="pagination__btn" @click="nextPage">&raquo;</button>
+      <button class="pagination__btn" :class="{ disabledBtn: currentPage === totalPages }" @click="nextPage">&raquo;</button>
   </div>
 </template>
 
@@ -49,11 +49,11 @@ onMounted(() => {
   display: flex;
   flex-wrap: wrap;
   justify-content: center; 
-  margin: 0 10rem;
+  margin: 0 5rem;
 }
 
 .pagination {
-  margin: 20px;
+  margin-bottom: 1rem;
 
   &__text {
     font-size: 1rem;
@@ -65,6 +65,15 @@ onMounted(() => {
     background-color: white;
     color: #5333ED;
     font-size: 1.5rem;
-  }  
+  }
 }
+
+  .disabledBtn {
+    border: none;
+    background-color: white;
+    color: #5333ED;
+    opacity: 20%;
+    font-size: 1.5rem;
+  }
+
 </style>
